@@ -1,6 +1,6 @@
-const mongoose = require ("mongoose")
-const app = require ("./app");
-const config = require ("./config");
+import mongoose from "mongoose";
+import app from "./app.js";
+import config from "./config/index.js";
 
 async function main() {
   await mongoose.connect(config.database_url);

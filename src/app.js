@@ -1,8 +1,8 @@
 //app.ts
-const  express = require ("express");
+import express from "express";
 const app = express();
-const cors = require ("cors");
-// import router from "./app/routes";
+import cors from "cors";
+import { invoiceRouter } from "./app/modules/invoice/invoice.route.js";
 
 app.use(cors());
 
@@ -10,10 +10,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use("/api/v1", router)
+app.use("/api/v1", invoiceRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-module.exports = app;
+export default app;
