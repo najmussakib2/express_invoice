@@ -11,7 +11,7 @@ const itemSchema = new Schema(
 );
 
 const orderSchema = new Schema({
-  invoice_id: String,
+  invoice_id: Number,
   cashier_name: String,
   customer_name: String,
   customer_phone: String,
