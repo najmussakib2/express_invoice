@@ -11,7 +11,7 @@ const itemSchema = new Schema(
 );
 
 const orderSchema = new Schema({
-  invoice_id: Number,
+  orderId: String,
   cashier_name: String,
   customer_name: String,
   customer_phone: String,
@@ -23,7 +23,7 @@ const orderSchema = new Schema({
   total: Number,
   due: Number,
   items: [itemSchema],
-});
+},{ timestamps: true });
 
 orderSchema.set("toJSON", {
   transform: function (doc, ret) {

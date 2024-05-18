@@ -1,7 +1,13 @@
 import { Order } from "./invoice.model.js";
+import generateOrderID from "./invoiceGenarator.js";
 
 const createInvoiceInDB = async (payload) => {
+  const id = await generateOrderID(payload)
+  payload.orderId = id
+  // const orderId = 'orderId'
+  // payload[orderId] = ID;
   const result = await Order.create(payload);
+  console.log(result)
   return result;
 };
 
