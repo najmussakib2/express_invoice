@@ -18,7 +18,10 @@ const orderSchema = new Schema({
   customer_address: String,
   delivery_charge: Number,
   paid_amount: Number,
-  note: String,
+  note: {
+    type:String,
+    trim: true
+  },
   subTotal: Number,
   total: Number,
   due: Number,
