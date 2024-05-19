@@ -16,14 +16,14 @@ const findLastOrderId = async () => {
 const generateOrderID = async () => {
   const currentId = (await findLastOrderId()) || '00000';
   
-  const prefix = 'IPN';
+ 
   const lastTwoDigitsOfYear = new Date().getFullYear().toString().slice(-2);
   // const timestamp = new Date(); // Use timestamp as the dynamic portion
   console.log(lastTwoDigitsOfYear)
 
   let incrementedId = (parseInt(currentId) + 1).toString().padStart(5, '0');
 
-  const orderID = `${prefix}${lastTwoDigitsOfYear}${incrementedId}`;
+  const orderID = `${lastTwoDigitsOfYear}${incrementedId}`;
   console.log(orderID)
   return orderID;
 };
