@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/v1", invoiceRouter);
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello World! 2");
 });
 
 
