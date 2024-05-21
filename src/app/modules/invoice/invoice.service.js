@@ -7,7 +7,7 @@ const createInvoiceInDB = async (payload) => {
   // const orderId = 'orderId'
   // payload[orderId] = ID;
   const result = await Order.create(payload);
-  console.log(result)
+  console.log("service 10",result)
   return result;
 };
 

@@ -1,30 +1,23 @@
 import { Order } from "./invoice.model.js";
 
-
-
 const findLastOrderId = async () => {
   const lastOrder = await Order.findOne({}, { orderId: 1, _id: 0 }).sort({
     createdAt: -1,
   });
-
-  console.log(lastOrder)
-
-  return lastOrder?.orderId ? lastOrder.orderId.substring(6, 10) : '00';
-  // return lastOrder?.orderId ? lastOrder.orderId.substring(4) : undefined;
+  return lastOrder?.orderId ? lastOrder.orderId.substring(4, 10) : "00";
+  
 };
 
 const generateOrderID = async () => {
-  const currentId = (await findLastOrderId()) || '00000';
-  
- 
+  const currentId = (await findLastOrderId()) || "00000";
+
   const lastTwoDigitsOfYear = new Date().getFullYear().toString().slice(-2);
   // const timestamp = new Date(); // Use timestamp as the dynamic portion
-  console.log(lastTwoDigitsOfYear)
 
-  let incrementedId = (parseInt(currentId) + 1).toString().padStart(5, '0');
+  let incrementedId = (parseInt(currentId) + 1).toString().padStart(5, "0");
 
-  const orderID = `${lastTwoDigitsOfYear}${incrementedId}`;
-  console.log(orderID)
+  const orderID = `${lastTwoDigitsOfYear}${incrementedId}`; //not ok
+
   return orderID;
 };
 
