@@ -2,10 +2,11 @@ import { Schema, model } from "mongoose";
 
 const itemSchema = new Schema(
   {
-    item: String,
-    qty: Number,
-    price: Number,
-    amount: Number,
+    id: String,
+    name: String,
+    qty: String,
+    price: String,
+    amount: String,
   },
   { _id: false }
 );
