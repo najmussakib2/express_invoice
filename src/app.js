@@ -17,5 +17,4 @@ app.get("/", (req, res) => {
   res.send("Hello World! 2");
 });
 
-
 export default app;
