@@ -18,12 +18,13 @@ const createInvoice = async (req, res) => {
 
 const getAllInvoices = async (req, res) => {
   try {
-    const result = await invoiceServices.getAllInvoiceFromDB();
+    const result = await invoiceServices.getAllInvoiceFromDB(req.query);
 
     res.status(200).json({
       success: true,
-      message: "invoices are retrieved succesfully",
-      data: result,
+      message: "All Orders fetched successfully",
+      meta: result?.meta,
+      data: result?.data,
     });
   } catch (err) {
     console.log(err);
