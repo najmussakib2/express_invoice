@@ -30,6 +30,21 @@ const getAllInvoices = async (req, res) => {
     console.log(err);
   }
 };
+const updateInvoice = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const result = await invoiceServices.updateInvoiceFromDB(id,req.body.status);
+
+    res.status(200).json({
+      success: true,
+      message: "All Orders fetched successfully",
+      meta: result?.meta,
+      data: result?.data,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 const deleteInvoice = async (req, res) => {
   try {
@@ -54,5 +69,6 @@ const deleteInvoice = async (req, res) => {
 export const invoiceController = {
   createInvoice,
   getAllInvoices,
+  updateInvoice,
   deleteInvoice,
 };

@@ -27,6 +27,14 @@ const getAllInvoiceFromDB = async (query) => {
   return { data: result, meta };
 };
 
+const updateInvoiceFromDB = async (_id, status) => {
+  const result = await Order.updateOne(
+    { _id },
+    { $set: { status } },
+    { runValidators: true }
+  );
+  return result;
+};
 const deleteInvoiceFromDB = async (_id) => {
   const result = await Order.deleteOne({ _id });
   return result;
@@ -36,4 +44,5 @@ export const invoiceServices = {
   createInvoiceInDB,
   getAllInvoiceFromDB,
   deleteInvoiceFromDB,
+  updateInvoiceFromDB,
 };
